@@ -2,102 +2,181 @@ var total = 0
 var random = Math.floor(Math.random() * 120) + 19;
 var wins = 0
 var losses = 0
+var gameOver = false
 
 
 
-$(document).ready(function() {
 
 
-//generate random number in the random-number div
-//var random = Math.floor(Math.random() * 120) + 19;
-
-// ... and then dump the random number into our random-number div.
-$("#random-number").text(random);
+$(document).ready(function () {
 
 
-//generate points for buttons
+    //generate random number in the random-number div
+    //var random = Math.floor(Math.random() * 120) + 19;
 
-var bluePoints = Math.floor(Math.random() * 12) + 1;
-localStorage.setItem("blueKey", bluePoints); 
-console.log(bluePoints);
+    // ... and then dump the random number into our random-number div.
+    $("#random-number").text(random);
+    $("#score").text(total);
 
-var greenPoints = Math.floor(Math.random() * 12) + 1;
-localStorage.setItem("greenKey", greenPoints); 
-console.log(greenPoints);
+    //generate points for buttons
 
-var purplePoints = Math.floor(Math.random() * 12) + 1;
-localStorage.setItem("purpleKey", purplePoints); 
-console.log(purplePoints);
+    var bluePoints = Math.floor(Math.random() * 12) + 1;
+    localStorage.setItem("blueKey", bluePoints);
+    console.log(bluePoints);
 
-var yellowPoints = Math.floor(Math.random() * 12) + 1;
-localStorage.setItem("blueKey", yellowPoints); 
-console.log(yellowPoints);
+    var greenPoints = Math.floor(Math.random() * 12) + 1;
+    localStorage.setItem("greenKey", greenPoints);
+    console.log(greenPoints);
 
-//add clicked buttons value to the count in div score
-//get buttons to click
-$( ".blue" ).click(function() {
-    console.log("Blue");
-//onclick bluePoins will add to the score
-total = total + bluePoints 
-$("#score").html(total);
-//compare the total to the random 
-if (total > random){
-    console.log("loss");
-    $("#wins").prepend("<p>You lose!</p>");
+    var purplePoints = Math.floor(Math.random() * 12) + 1;
+    localStorage.setItem("purpleKey", purplePoints);
+    console.log(purplePoints);
 
-} else if (total == random) {
-    $("#wins").prepend("<p>You win!</p>");    
-};
+    var yellowPoints = Math.floor(Math.random() * 12) + 1;
+    localStorage.setItem("blueKey", yellowPoints);
+    console.log(yellowPoints);
+
+    //add clicked buttons value to the count in div score
+    //get buttons to click
+    $(".blue").click(function () {
+        console.log("Blue");
+        //onclick bluePoins will add to the score
+        total = total + bluePoints
+        $("#score").html(total);
+        //compare the total to the random 
+        if (total > random && gameOver != true) {
+            console.log("loss");
+            
+            $("#losses").html("Losses:" + ++losses);
+            gameOver = true;
+            //call restart function
+            reStart();
+            //inner html add loses
+            $("#report").text("You Lose!");
+        } else if (total == random && gameOver != true) {
+            
+            $("#wins").html("Wins:" + ++wins);
+            gameOver = true;
+            //call restart function
+            reStart();
+            $("#report").text("You Win!");
+            //inner html add wins
+        };
 
 
-});//blue button
+    });//blue button
 
-$( ".green" ).click(function() {
-    console.log("green");
-    total = total + greenPoints
-$("#score").html(total);
-if (total > random){
-    console.log("loss");
-    $("#wins").prepend("<p>You Lose!</p>");
+    $(".green").click(function () {
+        console.log("green");
+        total = total + greenPoints
+        $("#score").html(total);
+        if (total > random && gameOver != true) {
+            console.log("loss");
+            
+            $("#losses").html("Losses:" + ++losses);
+            gameOver = true;
+            //call restart function
+            reStart();
+            $("report").text("You Lose!");
+            //inner html add loses
+        } else if (total == random && gameOver != true) {
+            
+            $("#wins").html("Wins:" + ++wins);
+            
+            gameOver = true;
+            //call restart function
+            reStart();
+            $("#report").text("You Win!");
+            //inner html add wins
 
-}else if (total == random) {
-    $("#wins").prepend("<p>You win!</p>");  
-    this.getElementById("wins").innerHTML = ("Wins: " + ++wins);
+        };
+    }); //green button
 
-};
-}); //green button
+    $(".purple").click(function () {
+        console.log("purple");
+        total = total + purplePoints
+        $("#score").html(total);
+        if (total > random && gameOver != true) {
+            console.log("loss");
+           
+            $("#losses").html("Losses:" + ++losses);
+            gameOver = true;
+            //call restart function
+            reStart(); 
+            $("#report").text("You Lose!");
+            //inner html add loses
+        } else if (total == random && gameOver != true) {
+           
+            $("#wins").html("Wins:" + ++wins);
+            gameOver = true;
+            //call restart function
+            reStart();
+            $("#report").text("You Win!");
+        };
+    }); //purple button
+    $(".yellow").click(function () {
+        console.log("yellow");
+        total = total + yellowPoints
+        $("#score").html(total);
+        if (total > random && gameOver != true) {
+            console.log("loss");
+           
+            $("#losses").html("Losses:" + ++losses);
+            gameOver = true;
+            //call restart function
+            reStart();
+            $("#report").text("You Lose!");
+        } else if (total == random && gameOver != true) {
+            
+            $("#wins").html("Wins:" + ++wins);
+            gameOver = true;
+            //call restart function
+            reStart();
+            $("#report").text("You Win!");
+        };
+    });//yellow button
 
-$( ".purple" ).click(function() {
-    console.log("purple");
-    total = total + purplePoints 
-    $("#score").html(total);
-    if (total > random){
-        console.log("loss");
-        $("#wins").prepend("<p>You Lose!</p>");
-       
-    }else if (total == random) {
-        $("#wins").prepend("<p>You win!</p>");  
-       
-    };
-  }); //purple button
-$( ".yellow" ).click(function() {
-    console.log("yellow");
-    total = total + yellowPoints 
-$("#score").html(total);
-if (total > random){
-    console.log("loss");
-    $("#wins").prepend("<p>You Lose!</p>"); 
+function reStart() {
+    //generate new random number in the random number tag
+    random = Math.floor(Math.random() * 120) + 19;
+    $("#random-number").text(random);
+
+    //reset total to zero
+    total = 0;
+    $("#score").text(total);
+
+    gameOver = false;
+    
+    
+    bluePoints = Math.floor(Math.random() * 12) + 1;
+    localStorage.setItem("blueKey", bluePoints);
+    console.log(bluePoints);
+
+    greenPoints = Math.floor(Math.random() * 12) + 1;
+    localStorage.setItem("greenKey", greenPoints);
+    console.log(greenPoints);
+
+    purplePoints = Math.floor(Math.random() * 12) + 1;
+    localStorage.setItem("purpleKey", purplePoints);
+    console.log(purplePoints);
+
+    yellowPoints = Math.floor(Math.random() * 12) + 1;
+    localStorage.setItem("blueKey", yellowPoints);
+    console.log(yellowPoints);
+
    
-} else if (total == random) {
-    $("#wins").prepend("<p>You win!</p>");  
-  
 };
-  });//yellow button
+
+
+
+    //get rid of you lose; reset all random numbers 
 
 
 
 
-//make if else statements that will compare the total number and the random number
+
+    //make if else statements that will compare the total number and the random number
 
 
 });//document.ready close
+
