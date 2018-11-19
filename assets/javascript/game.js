@@ -9,6 +9,7 @@ var gameOver = false
 
 
 $(document).ready(function () {
+    
 
 
     //generate random number in the random-number div
@@ -121,14 +122,14 @@ $(document).ready(function () {
         if (total > random && gameOver != true) {
             console.log("loss");
            
-            $("#losses").html("Losses:" + ++losses);
+            $("#losses").html("Losses: " + ++losses);
             gameOver = true;
             //call restart function
             reStart();
             $("#report").text("You Lose!");
         } else if (total == random && gameOver != true) {
             
-            $("#wins").html("Wins:" + ++wins);
+            $("#wins").html("Wins: " + ++wins);
             gameOver = true;
             //call restart function
             reStart();
@@ -172,7 +173,9 @@ function reStart() {
     //get rid of you lose; reset all random numbers 
 
 
-
+    $(document).ready(function() {                  
+        $("#title").lettering();
+    });
 
 
     //make if else statements that will compare the total number and the random number

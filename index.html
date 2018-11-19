@@ -1,66 +1,112 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CrystalsCollector!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script
-    src="https://code.jquery.com/jquery-1.12.4.js"
-    integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
-    crossorigin="anonymous"></script>
-   <script src="assets/javascript/game.js"></script>
-    
-   
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+    <script src="_scripts/jquery.lettering.js"></script>
+
+
 </head>
-<body background="assets/images/bgimage.jpg"></body>
-       
-    <div id = "title">
-    <h1>CrystalsCollector!</h1>
-    </div>
 
-    <div id = "directions">
-        <p>You will be given a random number at the start of the game.</p>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+      
+            <!-- Learned how to accomplish this creative title effect from lynda.com, advanced typofraphic techniques course -->
+            <section class = "responsive" id="crystals collector">
+                <div class = "text">
+                    <div class="top">
+                    </div>
+                    <div class="bottom">
+                        <p id = "title">Crystals Collector</p>
+                    </div>
+                </div>
+            </section>
   
-        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
-    
-        <p>You win the game by matching your total score to random number, you lose the game if your total sore goes above the random number.</p>
- 
-        <p>The value of each crystal is hidden from you until you click on it.</p>
-        
-        <p>Each time when the game starts, the game will change the value of each crystal.</p>
     </div>
 
 
-    <div id = "twoblocks">
-        
-        <div id = "random-number">
-        </div> 
-
-        <aside>
-        <div id = "report"></div>
-        <div id = "wins">Wins: </div>
-        <br>
-        <br>
-        <div id = "losses">Losses:</div>
+ 
+    <div class="container">
+            <div id="accordion">
     
+                <div class="card custom-card-header gradiant" id="about">
+    
+                    <div class="card-header">
+                        <button id="button" class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+                            aria-controls="collapseOne">
+                            Directions: 
+                        </button>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    
+                            <div class="card-body ">
+                                  
+                                    <p>You will be given a random number at the start of the game.</p>
+                            
+                                    <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your
+                                        total score.</p>
+                            
+                                    <p>You win the game by matching your total score to random number, you lose the game if your total sore goes
+                                        above the random number.</p>
+                            
+                                    <p>The value of each crystal is hidden from you until you click on it.</p>
+                            
+                                    <p>Each time when the game starts, the game will change the value of each crystal.</p>
+                               
+           
+                                
+                            </div><!--End Card Body-->
+                        </div>  <!--End CollapseOne-->
+                    </div> <!--End Card Header-->
+                </div> <!--End Custom Card Header-->
+            </div><!--End accordion-->
+                                
+
+
+
+   
+
+    <div id="twoblocks">
+
+        <div class = "gradiant" id="random-number">
+        </div>
+
+        <aside class = "gradiant">
+            <div id="report"></div>
+            <div id="wins">Wins: </div>
+            
+            <div id="losses">Losses:</div>
+
         </aside>
 
     </div>
 
 
-    <div id = "pictures">
-            <img class = "blue" src="assets/images/blue.png" alt="blue crystal">
-            <img class = "green" src="assets/images/green.png" alt="green crystal">
-            <img class = "purple" src="assets/images/purple.png" alt="purple crystal">
-            <img class = "yellow" src="assets/images/yellow.png" alt="yellow crystal">
+    <div id="pictures">
+        <img class="blue gradiant" src="assets/images/blue.png" alt="blue crystal">
+        <img class="green gradiant" src="assets/images/green.png" alt="green crystal">
+        <img class="purple gradiant" src="assets/images/purple.png" alt="purple crystal">
+        <img class="yellow gradiant" src="assets/images/yellow.png" alt="yellow crystal">
     </div>
-    <div id = "youtotal">
+    <div class = "gradiant" id="youtotal">
         <p>Your total score is:</p>
-    </div>
-    <div id = "score">
+   
+    <div class = "gradiant" id="score">
     </div>
 
+ </div>
+</div> <!--End About Me Container -->
+
+
 </body>
+
 </html>
