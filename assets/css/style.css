@@ -72,15 +72,8 @@ section {
         perspective-origin: 50% 100%;
     }
 
-span[class^="char"] {
-        display:inline-block;
-        position: relative;
-        -webkit-transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
-        -moz-transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
-        -o-transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
-        -ms-transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
-        transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
-    }
+
+
 
 button {
         background-color: lightblue; 
