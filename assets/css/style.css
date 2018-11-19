@@ -3,7 +3,7 @@ body{
 }
 
 #portfolio-link{
-    margin-left: 400px; 
+    margin-left: 200px; 
 }
 
 .jumbotron{
@@ -91,6 +91,14 @@ button {
         background: blue;  
         border-radius: 50px;
         margin: 10px; 
+        width: 400px;
+        background: -moz-linear-gradient(top,  blue 0%, #78a4ce 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,blue), color-stop(100%,#78a4ce));
+        background: -webkit-linear-gradient(top,  blue 0%,#78a4ce 100%);
+        background: -o-linear-gradient(top,  blue 0%,#78a4ce 100%);
+        background: -ms-linear-gradient(top,  blue 0%,#78a4ce 100%);
+        background: linear-gradient(to bottom,  blue 0%,#78a4ce 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='blue', endColorstr='#78a4ce',GradientType=0 );
          
         }
 
