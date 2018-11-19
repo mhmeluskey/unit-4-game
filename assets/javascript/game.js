@@ -173,9 +173,7 @@ function reStart() {
     //get rid of you lose; reset all random numbers 
 
 
-    $(document).ready(function() {                  
-        $("#title").lettering();
-    });
+ 
 
 
     //make if else statements that will compare the total number and the random number
